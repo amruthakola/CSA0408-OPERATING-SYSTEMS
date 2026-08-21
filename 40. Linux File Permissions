@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <sys/stat.h>
+
+int main()
+{
+    char file[]="file.txt";
+
+    if(chmod(file,0664)==0)
+        printf("Permissions changed successfully");
+    else
+        printf("Error");
+
+    return 0;
+}
