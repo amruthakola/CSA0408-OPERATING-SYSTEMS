@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a[20],n,head,i,total=0;
+
+    printf("Enter number of requests: ");
+    scanf("%d",&n);
+
+    printf("Enter requests:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+
+    printf("Enter initial head: ");
+    scanf("%d",&head);
+
+    printf("Enter disk size: ");
+    scanf("%d",&i);
+
+    total = abs(head-0) + abs(i-0);
+
+    printf("Total Seek Time = %d",total);
+
+    return 0;
+}
