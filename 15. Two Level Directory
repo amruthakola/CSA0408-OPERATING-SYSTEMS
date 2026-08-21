@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char user[10][20],file[10][20];
+    int n,i;
+    char u[20],f[20];
+
+    printf("Enter number of users: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++)
+    {
+        printf("User name: ");
+        scanf("%s",user[i]);
+
+        printf("File name: ");
+        scanf("%s",file[i]);
+    }
+
+    printf("Enter user and file: ");
+    scanf("%s%s",u,f);
+
+    for(i=0;i<n;i++)
+        if(strcmp(user[i],u)==0 &&
+           strcmp(file[i],f)==0)
+        {
+            printf("File Found");
+            return 0;
+        }
+
+    printf("File Not Found");
+    return 0;
+}
