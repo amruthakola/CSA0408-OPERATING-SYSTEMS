@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int head,size,total;
+
+    printf("Enter initial head: ");
+    scanf("%d",&head);
+
+    printf("Enter disk size: ");
+    scanf("%d",&size);
+
+    total=head+(size-1);
+
+    printf("Total Seek Time = %d",total);
+
+    return 0;
+}
