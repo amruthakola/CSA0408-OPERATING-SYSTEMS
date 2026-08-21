@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    FILE *fp;
+    char file[20],word[20],line[100];
+
+    printf("Enter file name: ");
+    scanf("%s",file);
+
+    printf("Enter word: ");
+    scanf("%s",word);
+
+    fp=fopen(file,"r");
+
+    while(fgets(line,100,fp))
+        if(strstr(line,word))
+            printf("%s",line);
+
+    fclose(fp);
+
+    return 0;
+}
