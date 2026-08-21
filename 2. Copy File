@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE *a, *b;
+    char c, f1[20], f2[20];
+
+    printf("Enter source file: ");
+    scanf("%s", f1);
+
+    printf("Enter destination file: ");
+    scanf("%s", f2);
+
+    a = fopen(f1, "r");
+    b = fopen(f2, "w");
+
+    while ((c = fgetc(a)) != EOF)
+        fputc(c, b);
+
+    fclose(a);
+    fclose(b);
+
+    printf("File copied successfully");
+    return 0;
+}
