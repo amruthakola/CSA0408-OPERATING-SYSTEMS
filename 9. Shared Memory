@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+int main()
+{
+    int id;
+    char *p;
+
+    id = shmget(1234,1024,IPC_CREAT|0666);
+
+    p = shmat(id,NULL,0);
+
+    strcpy(p,"Hello Shared Memory");
+
+    printf("Data: %s\n",p);
+
+    shmdt(p);
+    shmctl(id,IPC_RMID,NULL);
+
+    return 0;
+}
