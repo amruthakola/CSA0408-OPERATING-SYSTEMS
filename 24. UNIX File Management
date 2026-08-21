@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main()
+{
+    int fd;
+    char data[]="Hello World";
+
+    fd=open("file.txt",O_CREAT|O_WRONLY,0666);
+
+    write(fd,data,sizeof(data));
+
+    close(fd);
+
+    printf("File created and data written");
+
+    return 0;
+}
