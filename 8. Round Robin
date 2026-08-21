@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,bt[10],rt[10],wt[10]={0};
+    int tq,time=0,i,done;
+
+    printf("Enter number of processes: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++)
+    {
+        printf("BT of P%d: ",i+1);
+        scanf("%d",&bt[i]);
+        rt[i]=bt[i];
+    }
+
+    printf("Enter Time Quantum: ");
+    scanf("%d",&tq);
+
+    do
+    {
+        done=1;
+
+        for(i=0;i<n;i++)
+        {
+            if(rt[i]>0)
+            {
+                done=0;
+
+                if(rt[i]>tq)
+                {
+                    time+=tq;
+                    rt[i]-=tq;
+                }
+                else
+                {
+                    time+=rt[i];
+                    wt[i]=time-bt[i];
+                    rt[i]=0;
+                }
+            }
+        }
+    }while(!done);
+
+    printf("\nP\tBT\tWT\tTAT\n");
+
+    for(i=0;i<n;i++)
+        printf("P%d\t%d\t%d\t%d\n",
+               i+1,bt[i],wt[i],wt[i]+bt[i]);
+
+    return 0;
+}
